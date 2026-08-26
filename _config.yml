@@ -1,0 +1,14 @@
+title: The Resilient Backend
+email: peresivecas@yahoo.es
+author: Pere Sivecas
+description: >-
+  Architecting resilient Python APIs, mastering messy data integrations, and leveraging AI-native workflows for production systems.
+baseurl: "/"
+url: "https://peresivecas.github.io/the-resilient-backend"
+github_username:  peresivecas
+linkedin_username: peresivecas
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
