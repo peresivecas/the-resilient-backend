@@ -1,0 +1,70 @@
+---
+---
+// 2. Importem el disseny base de Minima perquè llegeixi les variables anteriors
+@import "minima";
+:root {
+  --header-height: 3.5rem;
+}
+// 3. Afegim regles CSS extres al final si cal
+.site-header {
+  border: 0;
+  background-color: black;
+  color: springgreen;
+  height: var(--header-height);
+  position: fixed;
+  width: 100%;
+}
+.site-title {
+  color: springgreen !important;
+  font-family: monospace;
+}
+body {
+  max-height: 100vh;
+}
+.page-content {
+  margin-top: var(--header-height); // Ha de coincidir exactament amb l'amplada de la sidebar
+  max-height: calc( 100vh - var(--header-height));
+  overflow-y: auto;
+}
+
+/* --- DISSENY DE LA SIDEBAR FIXE --- */
+
+// Apliquem el disseny de columna només en pantalles d'escriptori
+@media screen and (min-width: 800px) {
+  
+  // Definim l'estructura general del web amb Grid
+  // Transformem el footer en la barra lateral fixa
+  .site-footer {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 250px;       // Amplada de la teva sidebar
+    height: 100vh;      // Ocupa tot l'alt de la pantalla
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    border-top: none;   // Esborrem la línia superior original del footer
+    padding: 40px 20px;
+    z-index: 1000;      // S'assegura que quedi per sobre
+    overflow-y: auto;   // Si el contingut és llarg, permet fer scroll intern
+  }
+
+  // Desplacem el contingut principal a la dreta perquè no el tapi la sidebar
+  .page-content {
+    margin-left: 250px; // Ha de coincidir exactament amb l'amplada de la sidebar
+    padding: 40px;
+    max-width: calc(100% - 250px);
+  }
+
+  .footer-col {
+    min-width: 100%;
+  }
+
+}
+
+// Opcional: Estils per a pantalles mòbils (es queda com un footer normal a baix de tot)
+@media screen and (max-width: 799px) {
+  .site-footer {
+    padding: 20px 0;
+  }
+}
+
